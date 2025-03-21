@@ -22,10 +22,21 @@
 .logo {
 }
 
+.search,
+.search-result {
+  width: 361px;
+}
+
+.search-title {
+  padding: 5px 12px;
+  color: rgba(22, 24, 35, 0.5);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
 .search {
   display: flex;
   position: relative;
-  width: 361px;
   height: var(--search-height);
   padding-left: 16px;
   background-color: rgba(22, 24, 35, 0.06);
