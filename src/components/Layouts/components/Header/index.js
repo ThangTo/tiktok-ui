@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Children, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -25,6 +25,31 @@ const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'English',
+    children: {
+      title: 'Language',
+      data: [
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Vietnamese(Tiếng Việt)',
+        },
+        {
+          code: 'chi',
+          title: 'Chinese(中国人)',
+        },
+        {
+          code: 'kor',
+          title: 'Korean(한국인)',
+        },
+        {
+          code: 'ja',
+          title: 'Japanese(日本語)',
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -39,6 +64,11 @@ const MENU_ITEMS = [
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
+
+  //Handle Logic
+  const handleOnChange = (menuItem) => {
+    console.log(menuItem);
+  };
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -86,7 +116,7 @@ function Header() {
           <Button text>Upload</Button>
           <Button primary>Log in</Button>
 
-          <Menu items={MENU_ITEMS}>
+          <Menu items={MENU_ITEMS} onChange={handleOnChange}>
             <button className={cx('more-btn')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
